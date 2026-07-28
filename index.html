@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise for Dr. R. Deepika 🪻✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c084fc;
+            --accent: #e9d5ff;
+            --lavender-dark: #2e1065;
+            --lavender-light: #f3e8ff;
+            --bg: linear-gradient(135deg, #130e26 0%, #2a1b4e 50%, #1e1035 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Floating Lavender Flowers & Sparkles Animation Background */
+        .flower-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .flower {
+            position: absolute;
+            top: -10%;
+            font-size: 1.8rem;
+            animation: fall linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; }
+        }
+
+        /* Container & Card Styles */
+        .box-container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .step-card {
+            background: rgba(216, 180, 254, 0.1);
+            backdrop-filter: blur(18px);
+            border: 2px solid rgba(192, 132, 252, 0.4);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(192, 132, 252, 0.25);
+            display: none;
+            animation: popup 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .step-card.active {
+            display: block;
+        }
+
+        @keyframes popup {
+            0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* Titles & Text */
+        h2 {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 12px rgba(192, 132, 252, 0.5);
+        }
+
+        p.subtitle {
+            font-size: 1.05rem;
+            color: #f3e8ff;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        /* Buttons */
+        .btn-next {
+            background: linear-gradient(135deg, #c084fc, #a855f7, #7e22ce);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 25px;
+            box-shadow: 0 5px 20px rgba(192, 132, 252, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-next:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.7);
+        }
+
+        /* LAVENDER POST ENVELOPE DESIGN */
+        .envelope-card {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(126, 34, 206, 0.2));
+            border: 2px dashed rgba(233, 213, 255, 0.6);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .envelope-header {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: #d8b4fe;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(233, 213, 255, 0.2);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stamp {
+            background: #a855f7;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            border: 1px dashed #fff;
+        }
+
+        .address-box {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #f3e8ff;
+        }
+
+        .address-box strong {
+            color: #e9d5ff;
+        }
+
+        .sender-tag {
+            color: #c084fc;
+            font-weight: 600;
+        }
+
+        .receiver-tag {
+            color: #f472b6;
+            font-weight: 700;
+            font-size: 1.15rem;
+        }
+
+        /* Interactive Gift 1: Bouquet + Envelope Section */
+        .interactive-gift1 {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .gift-box-item {
+            background: rgba(233, 213, 255, 0.12);
+            border: 2px dashed rgba(192, 132, 252, 0.6);
+            border-radius: 20px;
+            padding: 20px 15px;
+            flex: 1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gift-box-item:hover {
+            transform: translateY(-8px);
+            background: rgba(192, 132, 252, 0.25);
+            border-color: #e9d5ff;
+        }
+
+        .icon-large {
+            font-size: 60px;
+            margin-bottom: 10px;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .item-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .item-desc {
+            font-size: 0.8rem;
+            color: #e2e8f0;
+            margin-top: 5px;
+        }
+
+        /* Popup note styling */
+        .secret-note-popup {
+            display: none;
+            background: rgba(30, 16, 60, 0.95);
+            border: 2px solid var(--primary);
+            border-radius: 16px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #f3e8ff;
+            animation: popup 0.4s ease;
+        }
+
+        /* Gift 2: Song Links */
+        .song-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(233, 213, 255, 0.12);
+            color: #f3e8ff;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 16px;
+            margin: 12px 0;
+            border: 1px solid rgba(192, 132, 252, 0.4);
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .song-btn:hover {
+            background: rgba(192, 132, 252, 0.25);
+        }
+
+        /* Gift 3: Message Cards */
+        .msg-item {
+            background: rgba(233, 213, 255, 0.08);
+            padding: 12px 16px;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 12px;
+            border-radius: 0 12px 12px 0;
+            text-align: left;
+            font-size: 0.98rem;
+        }
+
+        /* Gift 4: Funny Badges */
+        .funny-tag {
+            display: inline-block;
+            background: rgba(192, 132, 252, 0.2);
+            border: 1px solid rgba(192, 132, 252, 0.5);
+            color: #e9d5ff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 6px;
+            font-weight: 600;
+        }
+
+        /* Gift 5: Compliments List */
+        .compliment-box {
+            max-height: 260px;
+            overflow-y: auto;
+            text-align: left;
+            padding-right: 5px;
+        }
+
+        .compliment-item {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(233, 213, 255, 0.12);
+            font-size: 0.95rem;
+        }
+
+        /* Gift 6: Final Letter */
+        .letter-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.55rem;
+            line-height: 1.6;
+            color: #f3e8ff;
+            text-shadow: 0 0 5px rgba(192, 132, 252, 0.3);
+        }
+
+        .gift-box-icon {
+            font-size: 85px;
+            cursor: pointer;
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Lavender Flowers and Sparkles -->
+    <div class="flower-container" id="flowerContainer"></div>
+
+    <div class="box-container">
+
+        <!-- Intro Screen with Lavender Post Envelope -->
+        <div class="step-card active" id="step-0">
+            <div class="gift-box-icon" onclick="nextStep(1)">💌</div>
+            <h2>a spl gifts and quotes for you 🪻✨</h2>
+            <p class="subtitle">A special memory box wrapped in lavender tones...</p>
+
+            <!-- Lavender Post Envelope -->
+            <div class="envelope-card">
+                <div class="envelope-header">
+                    <span>✉️ EXPRESS PARCEL</span>
+                    <span class="stamp">SPECIAL DELIVERY</span>
+                </div>
+                <div class="address-box">
+                    <p><strong>FROM:</strong> <span class="sender-tag">Mr. KORANGU 🐒</span></p>
+                    <p><strong>TO:</strong> <span class="receiver-tag">Dr. R. DEEPIKA 🩺💜</span></p>
+                </div>
+            </div>
+
+            <button class="btn-next" onclick="nextStep(1)">Open Parcel ➔</button>
+        </div>
+
+        <!-- Gift 1 (Sunflower Bouquet + Mini Envelope) -->
+        <div class="step-card" id="step-1">
+            <h2>🌻 Gift 1 – Sunflower Bouquet & Envelope</h2>
+            <p class="subtitle">"A special delivery for the person who brightens up my world! 💜"</p>
+            
+            <div class="interactive-gift1">
+                <!-- Bouquet Card -->
+                <div class="gift-box-item" onclick="toggleNote('bouquetNote')">
+                    <span class="icon-large">🌻💐</span>
+                    <div class="item-title">Sunflower Bouquet</div>
+                    <div class="item-desc">Tap to open bouquet 🌻</div>
+                </div>
+
+                <!-- Envelope Card -->
+                <div class="gift-box-item" onclick="toggleNote('envelopeNote')">
+                    <span class="icon-large">✉️🪻</span>
+                    <div class="item-title">Lavender Envelope</div>
+                    <div class="item-desc">Tap to read note 💌</div>
+                </div>
+            </div>
+
+            <!-- Secret Popup Note 1 -->
+            <div id="bouquetNote" class="secret-note-popup">
+                🌻 <b>Sunflower Bouquet For Dr. R. Deepika:</b><br>
+                "Just like sunflowers turn towards the sun, my days get brighter whenever I talk to you!" 🪻✨
+            </div>
+
+            <!-- Secret Popup Note 2 -->
+            <div id="envelopeNote" class="secret-note-popup">
+                ✉️ <b>Special Note Inside:</b><br>
+                "To Dr. R. Deepika... You are my safe place, my non-blood sister, and my second mother. Thank you for always being there for me! 💜"
+            </div>
+
+            <button class="btn-next" onclick="nextStep(2)">Next Surprise ➔</button>
+        </div>
+
+        <!-- Gift 2 -->
+        <div class="step-card" id="step-2">
+            <h2>🎵 Gift 2 – Our Songs</h2>
+            <p class="subtitle">"Every time I hear these songs... I remember you." 🎧💜</p>
+            <a href="https://youtu.be/6Jr472oaKvY?si=dWVS2o90lJm_cbqW" target="_blank" class="song-btn">🌹 Play Song 1 on YouTube</a>
+            <a href="https://youtu.be/UVYApsOcdtc?si=XyLS72P1rV8yyhgI" target="_blank" class="song-btn">🌻 Play Song 2 on YouTube</a>
+            <button class="btn-next" onclick="nextStep(3)">Next Surprise ➔</button>
+        </div>
+
+        <!-- Gift 3 -->
+        <div class="step-card" id="step-3">
+            <h2>💜 Gift 3 – Heart Messages</h2>
+            <div class="msg-item">You are my comfort zone, always. 🫂</div>
+            <div class="msg-item">You're not my blood sister... but my heart never cared about blood. 🌻</div>
+            <div class="msg-item">You are my second mother. ❤️</div>
+            <div class="msg-item">Whenever life gets hard, I know you're just one message away. 🪻</div>
+            <div class="msg-item">Thank you for choosing me as your little brother. 💜</div>
+            <button class="btn-next" onclick="nextStep(4)">Next Surprise ➔</button>
+        </div>
+
+        <!-- Gift 4 -->
+        <div class="step-card" id="step-4">
+            <h2>😂 Gift 4 – Funny Corner</h2>
+            <div>
+                <span class="funny-tag">Nee oru Korathiii 😝</span>
+                <span class="funny-tag">Pichakaariii 😂</span>
+                <span class="funny-tag">Panni Kuttyyy 🐷💗</span>
+                <span class="funny-tag">Kutty Papaaah 🤏🏻😹</span>
+                <span class="funny-tag">Mendallll 🤣</span>
+            </div>
+            <p style="margin-top: 25px; font-weight: 600; color: var(--accent); font-size: 1.1rem;">Aana... En favourite Mendal nee dhaan. 💜🌻</p>
+            <button class="btn-next" onclick="nextStep(5)">Next Surprise ➔</button>
+        </div>
+
+        <!-- Gift 5 -->
+        <div class="step-card" id="step-5">
+            <h2>🌸 Gift 5 – Compliments</h2>
+            <div class="compliment-box">
+                <div class="compliment-item">✨ You're the kindest person I've ever met, Dr. Deepika.</div>
+                <div class="compliment-item">🌻 Your smile can make anyone's day better.</div>
+                <div class="compliment-item">🤍 Thank you for caring for me like your own little brother.</div>
+                <div class="compliment-item">♾️ You're the definition of unconditional love.</div>
+                <div class="compliment-item">🎁 You're one of the biggest blessings in my life.</div>
+                <div class="compliment-item">🌹 No matter how old we become, you'll always be my second mother.</div>
+                <div class="compliment-item">🍀 I'm lucky to have a sister like you.</div>
+                <div class="compliment-item">🌟 You make ordinary moments feel special.</div>
+                <div class="compliment-item">🙌 Thank you for always believing in me.</div>
+                <div class="compliment-item">💜 I hope you always smile, because your smile is priceless.</div>
+            </div>
+            <button class="btn-next" onclick="nextStep(6)">Final Surprise 💌 ➔</button>
+        </div>
+
+        <!-- Gift 6 -->
+        <div class="step-card" id="step-6">
+            <h2>✨ Gift 6 – Final Secret Letter 💌</h2>
+            <div class="letter-text">
+                "To Dr. R. Deepika...<br><br>
+                Family isn't always about blood. Sometimes, it's about the people who choose to stand beside you no matter what.<br><br>
+                Thank you for being my non-blood sister... my comfort zone... my second mother... and one of the most precious people in my life.<br><br>
+                From: Mr. KORANGU 🐒<br>
+                No matter where life takes us, you'll always have a special place in my heart." 🪻🌻💜
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function nextStep(stepNum) {
+            document.querySelectorAll('.step-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            document.getElementById('step-' + stepNum).classList.add('active');
+        }
+
+        function toggleNote(id) {
+            const note = document.getElementById(id);
+            if (note.style.display === "block") {
+                note.style.display = "none";
+            } else {
+                document.querySelectorAll('.secret-note-popup').forEach(n => n.style.display = 'none');
+                note.style.display = "block";
+            }
+        }
+
+        // Generate Floating Lavender Flowers, Sunflowers & Sparkles
+        const flowerContainer = document.getElementById('flowerContainer');
+        const flowers = ['🪻', '🌻', '🌸', '✨', '💜', '✉️'];
+
+        for (let i = 0; i < 30; i++) {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            flower.style.animationDelay = Math.random() * 5 + 's';
+            flower.style.fontSize = (Math.random() * 1.2 + 1.2) + 'rem';
+            flowerContainer.appendChild(flower);
+        }
+    </script>
+</body>
+</html>
